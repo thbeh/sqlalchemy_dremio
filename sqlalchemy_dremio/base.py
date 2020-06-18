@@ -195,10 +195,10 @@ class DremioDialect(default.DefaultDialect):
         params = {}
         if schema is not None:
             params["schema"] = schema
-            sql += " WHERE TABLE_SCHEMA = :schema"
+            sql += " WHERE TABLE_SCHEMA = '{0}'"
 
 #       result = connection.execute(sql, **params)
-        result = connection.execute(sql, { "schema": schema } )
+        result = connection.execute(sql.format(schema))
         table_names = [r[0] for r in result]
         return table_names
 
