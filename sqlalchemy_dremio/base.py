@@ -195,7 +195,7 @@ class DremioDialect(default.DefaultDialect):
         params = {}
         if schema is not None:
             params["schema"] = schema
-            sql += " WHERE TABLE_SCHEMA = :schema"
+            sql += " WHERE TABLE_SCHEMA = consumption"
 
         result = connection.execute(sql, **params)
         table_names = [r[0] for r in result]
