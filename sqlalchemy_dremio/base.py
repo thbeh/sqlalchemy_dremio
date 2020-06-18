@@ -197,7 +197,8 @@ class DremioDialect(default.DefaultDialect):
             params["schema"] = schema
             sql += " WHERE TABLE_SCHEMA = 'consumption'"
 
-        result = connection.execute(sql, **params)
+#       result = connection.execute(sql, **params)
+        result = connection.execute(sql)
         table_names = [r[0] for r in result]
         return table_names
 
